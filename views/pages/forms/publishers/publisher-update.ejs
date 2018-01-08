@@ -1,0 +1,55 @@
+<%- contentFor('mainPage') %>
+
+<div class="container">
+    <% if (errors.length > 0) { %>
+        <div class="alert alert-danger">
+            <% for (error of errors) { %>
+                <%= error %><br>
+            <% } %>
+        </div>
+    <% } %>
+
+    <% if (noMatch.length > 0) { %>
+        <div class="alert alert-danger"><%= noMatch %></div>
+    <% } %>
+
+    <% if (duplicatedata.length > 0) { %>
+        <div class="alert alert-danger"><%= duplicatedata %></div>
+    <% } %>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 form">
+
+            <form action="/maintenance/Publisher-Update" method="POST" class="forms no-display" id="update-form">
+
+                <fieldset class="form-group">
+                    <h3>Update</h3>
+                    <div class="form-group">
+                        <label>Publisher Code</label>
+                        <input type="text" name="pubCode" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>New Publisher Name</label>
+                        <input type="text" name="pubName" class="form-control">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>New City</label>
+                        <input name="pubCity" class="form-control" >
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-lg form-update">Update</button>
+                    </div>
+                </fieldset>
+
+            </form> 
+                        
+        </div>
+    </div>
+</div>

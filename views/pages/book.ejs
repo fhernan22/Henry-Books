@@ -1,0 +1,11 @@
+<%- contentFor('mainPage') %>
+<div class="container">
+	<div class="jumbotron text-center">
+		<h1><%= book.title %></h1>
+		<p>Books available: <%= book.onHand %></p>
+		<p>Branches: <%= book.branches %></p>
+		<p>Publisher: <%= book.publisherName %></p>
+		<p>Author(s): <%= book.authors %></p>
+		<!-- <a href="/books"class="btn btn-success goback"><span class="glyphicon glyphicon-hand-left"></span>Go back</a> -->
+	</div>
+</div>

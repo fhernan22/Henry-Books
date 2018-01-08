@@ -1,0 +1,49 @@
+<%- contentFor('mainPage') %>
+
+<div class="contaier">
+    <% if (errors.length > 0) { %>
+        <div class="alert alert-danger">
+            <% for (error of errors) { %>
+                <%= error %><br>
+            <% } %>
+        </div>
+    <% } %>
+
+    <% if (duplicateError.length > 0) { %>
+        <div class="alert alert-danger"><%= duplicateError %></div>
+    <% } %>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 form">
+
+            <form action="/maintenance/Publisher-Insert" method="POST" class="forms no-display" id="insert-form">
+
+                <fieldset class="form-group">
+                    <h3>Insert</h3>
+                    <div class="form-group">
+                        <label>Publisher Code</label>
+                        <input type="text" name="pubCode" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Publisher Name</label>
+                        <input name="pubName" class="form-control" >
+                    </div>
+
+                    <div class="form-group">
+                        <label>City</label>
+                        <input name="pubCity" class="form-control" >
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-lg form-insert">Insert</button>
+                    </div>
+                </fieldset>
+
+            </form> 
+                        
+        </div>
+    </div>
+</div>

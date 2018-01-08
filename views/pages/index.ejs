@@ -1,0 +1,24 @@
+<%- contentFor('mainPage') %>
+<div id="hero" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner fullpage" role="listbox">
+    <div class="item active">
+      <img src="/img/background2.jpg" class="background">
+      <div class="carousel-caption">
+        <div class="app-description">
+          <h1>Welcome to Henry Books</h1>
+          <p>To perform maintenance on the henrybooks database click on maintenance</p>
+          <p>To view the database click on catalog</p>
+          <p>To quickly find information about a book enter its name below</p>
+        </div>
+
+      <form method="POST" action="/books">
+        <div class="form-group">
+          <input id="searchbook" name="searchbook" type="search" class="form-control" placeholder="Search Book...">
+          <button class="btn btn-primary">Search</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>   
+</div>
+

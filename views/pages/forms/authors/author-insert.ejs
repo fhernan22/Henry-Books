@@ -1,0 +1,40 @@
+<%- contentFor('mainPage') %>
+
+<div class="container">
+    <% if (errors.length > 0) { %>
+        <div class="alert alert-danger">
+            <% for (error of errors) { %>
+                <%= error %><br>
+            <% } %>
+        </div>
+    <% } %>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 form">
+
+            <form action="/maintenance/Author-Insert" method="POST" class="forms no-display" id="insert-form">
+
+                <fieldset class="form-group">
+                    <h3>Insert</h3>
+                    <div class="form-group">
+                        <label>Author First Name</label>
+                        <input type="text" name="authorF" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Author Last Name</label>
+                        <input name="authorL" class="form-control" >
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-lg form-insert">Insert</button>
+                    </div>
+                </fieldset>
+
+            </form> 
+                        
+        </div>
+    </div>
+</div>

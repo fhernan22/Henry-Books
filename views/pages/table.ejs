@@ -1,0 +1,26 @@
+<%- contentFor('mainPage') %>
+<div class="container">
+	<div class="jumbotron text-center">
+		<h1><%= tableInfo.name %></h1>
+		<a href="/catalog"class="btn btn-success goback"><span class="glyphicon glyphicon-hand-left"></span>Go back</a>
+	</div>
+	<table class="table table-bordered table-hover table-striped">
+		<thead>
+			<tr>
+				<% for (var col of tableInfo.colNames) { %>
+					<th><%= col %></th>
+				<% } %>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% for (var row of table) { %>
+				<tr>
+					<% for (var col of tableInfo.colNames) { %>
+						<td><%= row[col] %></td>
+					<% } %>
+				</tr>
+			<% } %>
+		</tbody>
+	</table>
+</div>

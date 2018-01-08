@@ -1,0 +1,184 @@
+<%- contentFor('mainPage') %>
+
+<div class="text-center btn-choice">
+<div class="btn-group">
+	<button type="button" class="btn btn-primary btn-lg green" id="insert">Insert</button>
+	<button type="button" class="btn btn-primary btn-lg green" id="update">Update</button>
+	<button type="button" class="btn btn-primary btn-lg green" id="delete">Delete</button>
+</div>
+</div>
+
+<div class="contaier">
+	<% if (errors.length > 0) { %>
+        <div class="alert alert-danger">
+            <% for (error of errors) { %>
+                <%= error %><br>
+            <% } %>
+        </div>
+    <% } %>
+
+	<% if (duplicateError.length > 0) { %>
+		<div class="alert alert-danger"><%= duplicateError %></div>
+	<% } else { %>
+		<% if (message.length > 0) { %>
+			<div class="alert alert-success"><%= message %></div>
+		<% } %>
+	<% } %>
+
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6 col-sm-offset-3 form">
+
+		        <form action="/maintenance/Book-maintenance" method="POST" class="forms no-display" id="insert-form">
+
+	<fieldset class="form-group">
+		<h3>Insert</h3>
+        <div class="form-group">
+            <label>Book Name</label>
+            <input type="text" name="booktitle" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label>Author First Name</label>
+            <input type="text" name="authorF" class="form-control" >
+        </div>
+
+        <div class="form-group">
+            <label>Author Last Name</label>
+            <input type="text" name="authorL" class="form-control" >
+        </div>
+
+        <div class="form-group">
+            <label>Book Code</label>
+            <input name="bookcode" class="form-control" >
+        </div>
+
+        <div class="form-group">
+            <label>Publisher Code</label>
+            <input name="publishercode" class="form-control" >
+        </div>
+
+        <div class="form-group">
+            <label>Book Type</label>
+            <input name="booktype" class="form-control" >
+        </div>
+
+        <div class="form-group">
+        	<div class="radio">
+                <p>Paperback</p>
+                <label class="radio-inline"><input type="radio" name="radiogroup" value="Y" >Yes</label>
+				<label class="radio-inline"><input type="radio" name="radiogroup" value="N">No</label>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success btn-lg form-insert">Insert</button>
+        </div>
+    </fieldset>
+
+</form> 
+	                        
+			</div>
+		</div>
+
+		<div class="col-sm-6 col-sm-offset-3">
+
+	        <form action="#" method="POST" class="forms no-display" id="update-form"">
+
+	        	<fieldset class="form-group">
+	        		<h3>Update</h3>
+		            <div class="form-group">
+		                <label>Book Name</label>
+		                <input type="text" name="booktitle" class="form-control">
+		            </div>
+
+		            <div class="form-group">
+		                <label>Publisher Code</label>
+		                <input name="publishercode" class="form-control"></input>
+		            </div>
+
+		            <div class="form-group">
+		            	<div class="radio">
+			                <p>Paperback</p>
+			                <label class="radio-inline"><input type="radio" name="Y">Yes</label>
+							<label class="radio-inline"><input type="radio" name="N">No</label>
+		            </div>
+
+		            <div class="form-group">
+		                <button type="submit" class="btn btn-success btn-lg form-update">Update</button>
+		            </div>
+		        </fieldset>
+
+        	</form>
+                        
+		</div>
+
+		<div class="col-sm-6 col-sm-offset-3">
+
+	        <form action="/maintenance/Book-maintenance" method="POST" class="forms no-display" id="delete-form">
+
+	        	<fieldset class="form-group">
+	        		<h3>Delete</h3>
+		            <div class="form-group">
+		                <label>Book Name</label>
+		                <input type="text" name="booktitle" class="form-control">
+		            </div>
+
+		            <div class="form-group">
+		                <button type="submit" class="btn btn-success btn-lg form-delete">Delete</button>
+		            </div>
+		        </fieldset>
+
+        	</form>
+                        
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	window.onload = function() {
+
+		var data;
+
+		
+
+
+
+
+		// Toggle the correct button
+		$('.no-display').hide();
+
+		$('#insert').on("click", function() {
+			
+			$('.no-display').hide();
+			$('form#insert-form').show();
+		});
+
+		$('#update').on("click", function() {
+			$('.no-display').hide();
+			$('form#update-form').show();
+		})
+
+		$('#delete').on("click", function() {
+			$('.no-display').hide();
+			$('form#delete-form').show();
+		})
+
+		// Submit forms
+		$('.form-insert').click(function() {
+			$('form#insert-form').submit();
+		})
+
+		$('.form-update').click(function() {
+
+			$('form#update-form').submit();
+		})
+
+		$('.form-delete').click(function() {
+			$('form#delete-form').submit();
+		})
+
+
+	}
+</script>
